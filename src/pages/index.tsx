@@ -1,11 +1,11 @@
-// import ExperienceBar from '../components/ExperienceBar';
+import ExperienceBar from '../components/ExperienceBar';
 
 import { Container } from '../styles/pages/Home';
 
 const Home: React.FC = () => {
   return (
     <Container>
-      {/* <ExperienceBar /> */}
+      <ExperienceBar />
     </Container>
   );
 };
