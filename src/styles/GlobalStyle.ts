@@ -40,7 +40,7 @@ export default createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: 400 1rem 'inter', sans-serif;
+    font: 400 1rem 'inter', sans-serif;
   }
 
   button {
