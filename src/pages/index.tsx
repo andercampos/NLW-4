@@ -1,7 +1,7 @@
 import ExperienceBar from '../components/ExperienceBar';
 import Profile from '../components/Profile';
 import CompletedChallenges from '../components/CompletedChallenges';
-// import Countdown from '../components/Countdown';
+import Countdown from '../components/Countdown';
 
 import Head from 'next/head';
 
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         <div>
           <Profile />
           <CompletedChallenges />
-          {/* <Countdown /> */}
+          <Countdown />
         </div>
         <div>
         </div>
