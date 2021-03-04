@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface Props {
+  isActive?: boolean;
+}
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -39,7 +43,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<Props>`
   width: 100%;
   height: 5rem;
 
@@ -52,15 +56,27 @@ export const Button = styled.button`
   border: 0;
   border-radius: 5px;
 
-  background: var(--blue);
-  color: var(--white);
+  background: ${({ isActive }) => isActive ? 'var(--white)' : 'var(--blue)'};
+  color: ${({ isActive }) => isActive ? 'var(--title)' : 'var(--white)'};
 
   font-size: 1.25rem;
   font-weight: 600;
 
   transition: background-color 0.2s;
 
-  &:hover {
-    background: var(--blue-dark)
+  &:not(:disabled):hover {
+    background: ${({ isActive }) => isActive ? 'var(--red)' : 'var(--blue-dark)'};
+    color: ${({ isActive }) => isActive && 'var(--white)'};
+  }
+
+  &:disabled{
+    background: var(--white);
+    color: var(--text);
+    cursor: not-allowed;
+    border-bottom: 4px solid var(--green);
+  }
+
+  svg {
+    margin-left: 8px;
   }
 `;
