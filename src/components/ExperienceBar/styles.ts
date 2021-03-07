@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface Props {
-  progress: string;
+  progress: number;
 }
 
 export const Container = styled.header`
@@ -23,14 +23,14 @@ export const Container = styled.header`
 `;
 
 export const ProgressBar = styled.div<Props>`
-  width: ${({ progress }): string => progress};
+  width: ${({ progress }): number => progress}%;
   height: 4px;
   border-radius: 4px;
   background: var(--green);
 `;
 
 export const CurrentExperience = styled.span<Props>`
-  left: ${({ progress }) => progress};
+  left: ${({ progress }): number => progress}%;
   position: absolute;
   top: 12px;
   transform: translateX(-50%);
