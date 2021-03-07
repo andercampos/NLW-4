@@ -7,6 +7,7 @@ import {
 } from 'react';
 import Cookies from 'js-cookie';
 
+import LevelUpModal from '@components/LevelUpModal';
 import challenges from '../../challenges.json';
 
 interface Challenge {
@@ -22,6 +23,7 @@ interface ChallengesContextData {
   challengesCompleted: number;
   activeChallenge: Challenge | null;
   handleLevelUp(): void;
+  handleCloseLevelUpModal(): void;
   handleStartNewChallenge(): void;
   handleResetChallenge(): void;
   handleCompleteChallenge(): void;
@@ -52,6 +54,7 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
   const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(
     null,
   );
+  const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
 
   const experienceToNextLevel = ((level + 1) * 4) ** 2;
 
@@ -67,7 +70,12 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
 
   const handleLevelUp = useCallback((): void => {
     setLevel(level + 1);
+    setIsLevelUpModalOpen(true);
   }, [level]);
+
+  const handleCloseLevelUpModal = useCallback((): void => {
+    setIsLevelUpModalOpen(false);
+  }, []);
 
   const handleStartNewChallenge = useCallback((): void => {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
@@ -122,12 +130,15 @@ export const ChallengesProvider: React.FC<ChallengesProviderProps> = ({
         challengesCompleted,
         activeChallenge,
         handleLevelUp,
+        handleCloseLevelUpModal,
         handleStartNewChallenge,
         handleResetChallenge,
         handleCompleteChallenge,
       }}
     >
       {children}
+
+      {isLevelUpModalOpen && <LevelUpModal />}
     </ChallengesContext.Provider>
   );
 };
