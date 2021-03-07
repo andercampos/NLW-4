@@ -1,22 +1,24 @@
 import Head from 'next/head';
 
-import ExperienceBar from '../components/ExperienceBar';
-import Profile from '../components/Profile';
-import CompletedChallenges from '../components/CompletedChallenges';
-import Countdown from '../components/Countdown';
-import ChallengeBox from '../components/ChallengeBox';
+import ExperienceBar from '@components/ExperienceBar';
+import Profile from '@components/Profile';
+import CompletedChallenges from '@components/CompletedChallenges';
+import Countdown from '@components/Countdown';
+import ChallengeBox from '@components/ChallengeBox';
 
-import { Container } from '../styles/pages/Home';
+import { CountdownProvider } from '@contexts/CountdownContext';
 
-const Home: React.FC = () => {
-  return (
-    <Container>
-      <Head>
-        <title>Início | move.it</title>
-      </Head>
+import { Container } from '@styles/pages/Home';
 
-      <ExperienceBar />
+const Home: React.FC = () => (
+  <Container>
+    <Head>
+      <title>Início | move.it</title>
+    </Head>
 
+    <ExperienceBar />
+
+    <CountdownProvider>
       <section>
         <div>
           <Profile />
@@ -27,8 +29,8 @@ const Home: React.FC = () => {
           <ChallengeBox />
         </div>
       </section>
-    </Container>
-  );
-};
+    </CountdownProvider>
+  </Container>
+);
 
 export default Home;

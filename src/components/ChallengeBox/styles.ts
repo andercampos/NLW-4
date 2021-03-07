@@ -6,7 +6,7 @@ interface ButtonProps {
 
 const ButtonBackground = {
   failed: css`
-    background: var(--red); 
+    background: var(--red);
   `,
   succeeded: css`
     background: var(--green);

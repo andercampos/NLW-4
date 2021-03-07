@@ -1,14 +1,14 @@
-import GlobalStyle from '../styles/GlobalStyle';
+import { AppProps } from 'next/app';
 
-import { ChallengesProvider } from '../contexts/ChallengesContext';
+import GlobalStyle from '@styles/GlobalStyle';
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <ChallengesProvider>
-      <GlobalStyle />
-      <Component {...pageProps} />
-    </ChallengesProvider>
-  );
-};
+import AppProvider from '@contexts/index';
+
+const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => (
+  <AppProvider>
+    <GlobalStyle />
+    <Component {...pageProps} />
+  </AppProvider>
+);
 
 export default MyApp;
