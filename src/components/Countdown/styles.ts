@@ -56,8 +56,8 @@ export const Button = styled.button<Props>`
   border: 0;
   border-radius: 5px;
 
-  background: ${({ isActive }) => isActive ? 'var(--white)' : 'var(--blue)'};
-  color: ${({ isActive }) => isActive ? 'var(--title)' : 'var(--white)'};
+  background: ${({ isActive }) => (isActive ? 'var(--white)' : 'var(--blue)')};
+  color: ${({ isActive }) => (isActive ? 'var(--title)' : 'var(--white)')};
 
   font-size: 1.25rem;
   font-weight: 600;
@@ -65,11 +65,12 @@ export const Button = styled.button<Props>`
   transition: background-color 0.2s;
 
   &:not(:disabled):hover {
-    background: ${({ isActive }) => isActive ? 'var(--red)' : 'var(--blue-dark)'};
+    background: ${({ isActive }) =>
+      isActive ? 'var(--red)' : 'var(--blue-dark)'};
     color: ${({ isActive }) => isActive && 'var(--white)'};
   }
 
-  &:disabled{
+  &:disabled {
     background: var(--white);
     color: var(--text);
     cursor: not-allowed;

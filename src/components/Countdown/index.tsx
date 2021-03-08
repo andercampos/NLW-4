@@ -10,7 +10,7 @@ const Countdown: React.FC = () => {
     seconds,
     hasFinished,
     isActive,
-    handleResetountdown,
+    handleResetCountdown,
     handleStartCountdown,
   } = useCountdown();
 
@@ -44,7 +44,7 @@ const Countdown: React.FC = () => {
             <Button
               isActive={isActive}
               type="button"
-              onClick={handleResetountdown}
+              onClick={handleResetCountdown}
             >
               Abandonar ciclo
               <MdClose size={24} />

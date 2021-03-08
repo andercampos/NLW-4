@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components';
 
 interface ButtonProps {
-  name: string;
+  colorName: 'failed' | 'succeeded';
 }
 
-const ButtonBackground = {
+const ButtonBackgroundColor = {
   failed: css`
     background: var(--red);
   `,
   succeeded: css`
     background: var(--green);
   `,
-}
+};
 
 export const Container = styled.div`
   height: 100%;
@@ -110,7 +110,7 @@ export const Button = styled.button<ButtonProps>`
 
   transition: filter 0.2s;
 
-  ${({ name }) => ButtonBackground[name]};
+  ${({ colorName }) => ButtonBackgroundColor[colorName]};
 
   &:hover {
     filter: brightness(0.9);

@@ -43,12 +43,16 @@ const ChallengeBox: React.FC = () => {
           </main>
 
           <footer>
-            <Button type="button" name="failed" onClick={handleChallengeFailed}>
+            <Button
+              type="button"
+              colorName="failed"
+              onClick={handleChallengeFailed}
+            >
               Falhei
             </Button>
             <Button
               type="button"
-              name="succeeded"
+              colorName="succeeded"
               onClick={handleChallengeSucceeded}
             >
               Completei
